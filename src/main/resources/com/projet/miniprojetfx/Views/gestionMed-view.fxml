@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="550.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projet.miniprojetfx.Controller.MedicaController">
+    <children>
+        <AnchorPane prefHeight="50.0" prefWidth="771.0" style="-fx-background-color: #a78eb8;">
+            <children>
+                <Label layoutX="14.0" layoutY="16.0" prefHeight="21.0" prefWidth="189.0" text="Gestion de medicament">
+                    <font>
+                        <Font name="Gill Sans Ultra Bold" size="12.0" />
+                    </font>
+                </Label>
+                <Button fx:id="btnClose" layoutX="690.0" layoutY="13.0" mnemonicParsing="false" onAction="#handelClose" style="-fx-background-color: #c03865;" text="Logout" textAlignment="CENTER">
+                    <font>
+                        <Font name="Cambria Bold" size="12.0" />
+                    </font></Button>
+            <ButtonBar layoutX="197.0" layoutY="6.0" prefHeight="38.0" prefWidth="418.0">
+               <buttons>
+                  <Button fx:id="btnGestP" mnemonicParsing="false" onAction="#handelGestPView" prefHeight="25.0" prefWidth="145.0" style="-fx-background-color: #f8f8ff;" text="Gestion Patient" />
+                  <Button fx:id="btnGestM" mnemonicParsing="false" prefHeight="25.0" prefWidth="145.0" style="-fx-background-color: #00bfff;" text="Gestion Medicament" />
+                  <Button fx:id="btnAffM" mnemonicParsing="false" onAction="#handelAffMedView" prefHeight="25.0" prefWidth="145.0" style="-fx-background-color: #f8f8ff;" text="Aff medicament" />
+               </buttons>
+            </ButtonBar>
+            </children>
+        </AnchorPane>
+
+        <!-- Existing SplitPane -->
+        <SplitPane dividerPositions="0.5" layoutX="-49.0" prefHeight="378.0" prefWidth="646.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+            <items>
+                <AnchorPane prefHeight="425.0" prefWidth="335.0">
+                    <children>
+                        <TableView fx:id="medicaTable" layoutX="-3.0" layoutY="6.0" prefHeight="484.0" prefWidth="398.0" style="-fx-cursor: pointer;">
+                            <columns>
+                                <TableColumn fx:id="refColumn" prefWidth="117.0" text="Ref" />
+                                <TableColumn fx:id="libColumn" prefWidth="115.0" text="Libelle" />
+                                <TableColumn fx:id="prixColumn" prefWidth="75.0" text="Prix" />
+                            </columns>
+
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                            </columnResizePolicy>
+                        </TableView>
+                        <Label fx:id="lblNbHF" layoutX="22.0" layoutY="55.0">
+                            <font>
+                                <Font name="Bodoni MT Black" size="15.0" />
+                            </font></Label>
+                        <Label fx:id="lblTotP" layoutX="31.0" layoutY="28.0">
+                            <font>
+                                <Font name="Bodoni MT Black" size="15.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+                <AnchorPane maxWidth="1.7976931348623157E308" prefHeight="408.0" prefWidth="373.0">
+                    <children>
+                        <GridPane alignment="CENTER" layoutX="38.0" layoutY="191.0" prefHeight="159.0" prefWidth="293.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="128.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="122.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label prefHeight="15.0" prefWidth="104.0" style="-fx-text-alignment: center;" text="   Reference">
+                                    <font>
+                                        <Font name="Californian FB Bold" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label prefHeight="15.0" prefWidth="90.0" text="   Libelle" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="Californian FB Bold" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label prefHeight="18.0" prefWidth="106.0" text="    Prix" textFill="#252525" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="Californian FB Bold" size="20.0" />
+                                    </font></Label>
+                                <Label GridPane.columnIndex="1">
+                                    <graphic>
+                                        <TextField fx:id="txtRef" editable="false" prefHeight="26.0" prefWidth="212.0" style="-fx-opacity: 0.5;" />
+                                    </graphic>
+                                </Label>
+                                <Label GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <graphic>
+                                        <TextField fx:id="txtLib" editable="false" prefHeight="26.0" prefWidth="175.0" style="-fx-opacity: 0.5;" />
+                                    </graphic>
+                                </Label>
+                                <Label />
+                                <TextField fx:id="txtPrix" editable="false" prefHeight="26.0" prefWidth="104.0" style="-fx-opacity: 0.5;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                            </children>
+                        </GridPane>
+                        <ButtonBar layoutX="-20.0" layoutY="405.0" prefHeight="79.0" prefWidth="388.0">
+                            <buttons>
+                        <Button fx:id="btnPrint" onAction="#handelPrintData" mnemonicParsing="false" style="-fx-background-color: #ec6c5b;">
+                           <graphic>
+                              <ImageView  fitHeight="19.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../Assets/Addd.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                                <Button fx:id="btnAdd" minWidth="61.0" mnemonicParsing="false" onAction="#handelAddMed" prefHeight="20.0" style="-fx-background-color: #98fb98;">
+                                    <graphic>
+                                        <ImageView fx:id="imgAdd" fitHeight="20.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../Assets/add.png" />
+                                 </image></ImageView>
+                                    </graphic>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                                </Button>
+                                <Button fx:id="btnDel" mnemonicParsing="false" onAction="#handelDeleteMed" prefHeight="27.0" prefWidth="133.0" style="-fx-background-color: #ec6c5b;">
+                                    <graphic>
+                                        <ImageView fx:id="imgDel" fitHeight="20.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../Assets/delete.png" />
+                                 </image></ImageView>
+                                    </graphic>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                                </Button>
+                                <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#handelEditMed" prefHeight="28.0" prefWidth="112.0" style="-fx-background-color: #09467c;">
+                                    <graphic>
+                                        <ImageView fx:id="imgEdit" fitHeight="20.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../Assets/edit.png" />
+                                 </image></ImageView>
+                                    </graphic>
+                                </Button>
+                            </buttons>
+                        </ButtonBar>
+                        <ImageView fx:id="imgMed" fitHeight="101.0" fitWidth="163.0" layoutX="113.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Assets/imgMed.jpg" />
+                     </image></ImageView>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>

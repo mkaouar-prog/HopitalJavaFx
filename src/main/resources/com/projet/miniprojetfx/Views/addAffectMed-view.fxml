@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="645.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projet.miniprojetfx.Controller.AddMedController">
+    <children>
+        <Label layoutX="35.0" layoutY="12.0" prefHeight="34.0" prefWidth="286.0" text="Affecter un medicament à un patient">
+            <font>
+                <Font name="Bodoni MT Bold" size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="20.0" layoutY="105.0" text="Veuillez sélectionner le patient depuis la liste :" />
+        <ComboBox fx:id="patientComboBox" layoutX="20.0" layoutY="125.0" prefHeight="25.0" prefWidth="243.0" promptText="---Selectionner un patient---" />
+        <Label layoutX="336.0" layoutY="105.0" text="Veuillez sélectionner le médicament depuis la liste :" />
+        <ComboBox fx:id="medicamentComboBox" layoutX="336.0" layoutY="125.0" prefHeight="25.0" prefWidth="272.0" promptText="---Selectionner un medicament---" />
+      <Button fx:id="btnAdd" onAction="#handleAffectMed" layoutX="14.0" layoutY="219.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="594.0" style="-fx-background-color: #00f617;" text="Affecter medicament">
+         <graphic>
+            <ImageView fx:id="imgAdd"  fitHeight="23.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Assets/addB.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnBack" onAction="#handleBack" layoutX="14.0" layoutY="257.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="594.0" style="-fx-background-color: #f3ff51;" text="Retour " />
+      <ImageView fx:id="imgRetour" fitHeight="25.0" fitWidth="31.0" layoutX="237.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Assets/retour.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>
